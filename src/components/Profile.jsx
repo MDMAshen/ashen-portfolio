@@ -11,6 +11,7 @@ import {
 } from 'react-icons/si';
 import * as THREE from 'three';
 import Manuga from '../assets/Manuga.png';
+import Manugadewhancv from '../assets/Manuga_Dewhan_CV.pdf';
 
 function Profile() {
   const threeRef = useRef(null);
@@ -418,7 +419,7 @@ function Profile() {
               },
               {
                 label: 'Download CV',
-                href: '/Manuga_Dewhan_CV.pdf',
+                href: Manugadewhancv,
                 download: 'Manuga_Dewhan_CV.pdf',
               },
               { label: 'Email', href: 'mailto:manuga.dewhan@gmail.com' },
