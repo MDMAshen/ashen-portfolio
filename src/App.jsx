@@ -27,13 +27,13 @@ function App() {
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-black/70 backdrop-blur-md border-b border-cyan-800/30 shadow-[0_0_30px_rgba(45,212,191,0.15)] py-3'
+            ? 'bg-black/70 backdrop-blur-md border-b border-gray-700 shadow-[0_0_30px_rgba(200,200,200,0.15)] py-3'
             : 'bg-gradient-to-b from-black/70 to-transparent py-5'
         }`}
       >
         <nav className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-            MD
+          <h1 className="text-2xl font-extrabold tracking-tight text-gray-300">
+            {"<Ashen />"}
           </h1>
 
           {/* Desktop Menu */}
@@ -45,7 +45,7 @@ function App() {
                   className="font-semibold text-gray-300 hover:text-white transition-colors duration-300 relative group"
                 >
                   {item}
-                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-sky-400 to-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gray-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
@@ -74,7 +74,7 @@ function App() {
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="hover:text-cyan-300 transition-colors duration-300 font-semibold text-lg"
+                  className="hover:text-gray-300 transition-colors duration-300 font-semibold text-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}
@@ -118,16 +118,16 @@ function App() {
         </div>
         <div className="relative z-10 space-y-4">
           <p className="text-gray-400 font-extrabold">
-            &copy; 2025 Manuga Dewhan. All rights reserved.
+            &copy; 2025 Malsha Ashen. All rights reserved.
           </p>
         </div>
       </footer>
 
-      {/* Gradient Outline Button Style */}
+      {/* Light Gray Outline Button Style */}
       <style>{`
         .btn-outline-gradient {
           background: linear-gradient(#000, #000) padding-box,
-                      linear-gradient(90deg, #38bdf8, #10b981) border-box;
+                      linear-gradient(90deg, #d1d5db, #d1d5db) border-box;
           border-radius: 9999px;
           border: 2px solid transparent;
           color: white;
@@ -135,9 +135,9 @@ function App() {
           transition: all 0.4s ease;
         }
         .btn-outline-gradient:hover {
-          background: linear-gradient(90deg, #38bdf8, #10b981);
+          background: linear-gradient(90deg, #d1d5db, #d1d5db);
           color: #000;
-          box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+          box-shadow: 0 0 20px rgba(209, 213, 219, 0.4);
         }
       `}</style>
     </div>

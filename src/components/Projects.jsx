@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
+import Background from './Background'; //  Import Background component
 import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
 import project3 from '../assets/project3.png';
-
 
 function Projects() {
   const sectionRef = useRef(null);
@@ -14,21 +14,24 @@ function Projects() {
   const projects = [
     {
       title: 'Inventory Management System',
-      description: 'Developed a comprehensive, full-stack Inventory Management System for a university to replace manual, error-prone inventory tracking. The system features accurate location tracking , automated repair notifications , and detailed reporting to significantly improve resource allocation, efficiency, and decision-making for faculty and administration.',
+      description:
+        'Developed a responsive web application for managing inventory using React, Node.js, Express, and MongoDB. Designed search and navigation features for quick access to item details and locations, improving overall usability and efficiency.',
       image: project1,
       link: 'https://github.com/MalithDN/Inventory-Management-System-For-University-Faculty.git',
     },
     {
-      title: 'FOT Connect',
-      description: 'FOT Connect is a user-centric mobile application designed to improve communication and information sharing within the Faculty of Technology, University of Colombo. The app was conceptualized and designed using Material Design Guidelines, emphasizing clarity, consistency, and usability.',
+      title: 'FOT TIMES',
+      description:
+        'Built a mobile app with user authentication, profile management, and categorized news updates. Designed modern UIs in Figma based on Material Design for an engaging user experience.',
       image: project2,
-      link: 'https://github.com/ManugaK/FOT-News-App.git',
+      link: 'https://github.com/MDMAshen/FOT-Times-App.git',
     },
     {
       title: 'Library Management System',
-      description: 'Designed and developed a dynamic web application to manage users, books, and categories with secure authentication and role-based access.',
+      description:
+        'Built user management features including edit, delete, and user listing functionality with a responsive interface and efficient data handling.',
       image: project3,
-      link: 'https://github.com/ManugaK/Web-App-Project.git',
+      link: 'https://github.com/ManugaK/Web-App-Project',
     },
   ];
 
@@ -41,7 +44,7 @@ function Projects() {
           setIsTitleVisible(false);
         }
       },
-      { threshold: 0.2, once: false }
+      { threshold: 0.2 }
     );
 
     const cardObserver = new IntersectionObserver(
@@ -49,16 +52,15 @@ function Projects() {
         entries.forEach((entry) => {
           const index = parseInt(entry.target.dataset.index);
           if (entry.isIntersecting) {
-            setVisibleIndexes((prev) => {
-              if (!prev.includes(index)) return [...prev, index];
-              return prev;
-            });
+            setVisibleIndexes((prev) =>
+              prev.includes(index) ? prev : [...prev, index]
+            );
           } else {
             setVisibleIndexes((prev) => prev.filter((i) => i !== index));
           }
         });
       },
-      { threshold: 0.2, once: false }
+      { threshold: 0.2 }
     );
 
     const section = sectionRef.current;
@@ -79,34 +81,28 @@ function Projects() {
       ref={sectionRef}
       className="relative py-20 md:py-24 min-h-screen bg-black text-white overflow-hidden"
     >
-      {/* Background gradient lights */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[1] opacity-90"
-        style={{
-          background:
-            'radial-gradient(1200px 600px at 15% 20%, rgba(99, 179, 237, 0.14), transparent 60%), radial-gradient(900px 500px at 85% 80%, rgba(45, 212, 191, 0.12), transparent 60%)',
-        }}
-      />
+      {/*  Reusable Background Component */}
+      <Background />
 
-      {/* Content wrapper above background */}
+      {/* Content wrapper */}
       <div className="relative z-10 container mx-auto px-6 max-w-6xl">
-        <div className={`text-center mb-16 transition-all duration-600 ease-out ${
-              isTitleVisible
-                ? 'opacity-100 translate-y-0 scale-100'
-                : 'opacity-0 translate-y-6 scale-90'}`}>
+        <div
+          className={`text-center mb-16 transition-all duration-600 ease-out ${
+            isTitleVisible
+              ? 'opacity-100 translate-y-0 scale-100'
+              : 'opacity-0 translate-y-6 scale-90'
+          }`}
+        >
           <h2
             id="projects-title"
-            className="text-5xl sm:text-6xl font-extrabold pb-3 tracking-tight bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+            className="text-5xl sm:text-6xl font-extrabold pb-3 tracking-tight bg-gray-400 from-sky-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent"
           >
             Projects
           </h2>
-          <div
-            className="h-1 w-24 bg-gradient-to-r from-sky-400 to-emerald-400 mx-auto mt-3"
-          />
-          <p
-            className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed"
-          >
-            A collection of projects that showcase my skills and experience.
+          <div className="h-1 w-24 bg-gray-400 from-sky-400 to-emerald-400 mx-auto mt-3" />
+          <p className="mt-4 text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+            Turning ideas into interactive and visually engaging digital
+            experiences.
           </p>
         </div>
 
@@ -114,7 +110,6 @@ function Projects() {
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
           {projects.map((project, index) => {
             const isVisible = visibleIndexes.includes(index);
-
             return (
               <motion.div
                 key={index}
@@ -131,7 +126,6 @@ function Projects() {
                   delay: index * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                style={{ transformOrigin: "center", willChange: "transform" }}
                 className="project-card relative mb-12 flex flex-col p-6 bg-white/10 backdrop-blur-md rounded-xl"
               >
                 <img
@@ -139,9 +133,13 @@ function Projects() {
                   alt={project.title}
                   className="w-full h-48 object-cover rounded-lg"
                 />
-                <h3 className="text-xl font-semibold text-white mt-6 text-left">{project.title}</h3>
-                <p className="text-gray-300 text-sm mt-2 text-left flex-grow">{project.description}</p>
-                
+                <h3 className="text-xl font-semibold text-white mt-6 text-left">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 text-sm mt-2 text-left flex-grow">
+                  {project.description}
+                </p>
+
                 <a
                   href={project.link}
                   target="_blank"
@@ -157,7 +155,7 @@ function Projects() {
         </div>
       </div>
 
-      {/* Styles for gradient border/aura (matches Certifications card glow) */}
+      {/* Gradient border/aura effect */}
       <style>{`
         .project-card {
           background:
