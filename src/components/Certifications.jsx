@@ -25,7 +25,7 @@ export default function Certifications({ items }) {
           year: "Issued Nov 2025",
           credentialId: "1234",
           image: fullstack,
-          link: "https://www.credly.com/badges/1a37b529-2720-44fe-a818-b847f2514315",
+          link: "https://simpli-web.app.link/e/7iynNTjgqYb",
         },
         {
           title: "Prompt Engineering Application",
