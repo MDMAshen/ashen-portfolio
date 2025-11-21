@@ -5,6 +5,7 @@ import Background from './Background'; //  Import Background component
 import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
 import project3 from '../assets/project3.png';
+import project4 from '../assets/project4.png';
 
 function Projects() {
   const sectionRef = useRef(null);
@@ -32,6 +33,13 @@ function Projects() {
         'Built user management features including edit, delete, and user listing functionality with a responsive interface and efficient data handling.',
       image: project3,
       link: 'https://github.com/ManugaK/Web-App-Project',
+    },
+    {
+      title: 'Subscription Tracker System',
+      description:
+        'Built a full-stack subscription tracker with user authentication, dashboard analytics, and upcoming renewal reminders. Designed a modern, responsive UI with custom styles and charts for a clear and engaging user experience.',
+      image: project4,
+      link: 'https://github.com/MDMAshen/SubscriptionTacker.git',
     },
   ];
 
